@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title><%= title %></title></head>
+<body>
+  <h2><%= title %></h2>
+  <% if (form) { %>
+    <form method="get" action="<%= form.action %>">
+      <% form.fields.forEach(f => { %>
+        <label><%= f.label %>:
+          <input name="<%= f.name %>" value="<%= f.value || '' %>">
+        </label>
+      <% }) %>
+      <button type="submit">Run</button>
+    </form>
+  <% } %>
+
+  <% if (!rows.length) { %>
+    <p>No results found.</p>
+  <% } else { %>
+    <table border="1" cellpadding="6">
+      <tr><% headers.forEach(h => { %><th><%= h %></th><% }) %></tr>
+      <% rows.forEach(r => { %>
+        <tr><% headers.forEach(h => { %><td><%= r[h] %></td><% }) %></tr>
+      <% }) %>
+    </table>
+  <% } %>
+
+  <p><a href="/">← Back</a></p>
+</body>
+</html>
