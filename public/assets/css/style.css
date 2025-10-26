@@ -1,0 +1,117 @@
+/* Horse Racing Database UI - Professional Theme */
+:root{
+  --bg: #0b1220;
+  --panel: #121a2b;
+  --muted: #8aa0bd;
+  --text: #e9f0ff;
+  --primary: #7aa2ff;
+  --primary-strong: #4e7cff;
+  --accent: #00d4ff;
+  --danger: #ff6b6b;
+  --success: #23d18b;
+  --warning: #ffb86b;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  background: radial-gradient(1200px 800px at 10% -10%, #16233f 0%, var(--bg) 40%) no-repeat fixed;
+  color: var(--text);
+}
+
+a{color: var(--accent); text-decoration: none}
+a:hover{text-decoration: underline}
+
+.container{width:min(1100px, 92%); margin:0 auto;}
+
+.navbar{
+  backdrop-filter: blur(8px);
+  position: sticky; top:0; z-index: 50;
+  background: rgba(9,14,24,.6);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.5px}
+.badge{font-size:.75rem; padding:.15rem .5rem; border:1px solid rgba(255,255,255,.2); border-radius:999px; color: var(--muted)}
+
+.nav-links{display:flex; gap:16px; flex-wrap: wrap}
+.nav-links a{
+  padding:8px 12px; border-radius:10px; font-weight:600; color:#dce8ff;
+}
+.nav-links a.active, .nav-links a:hover{ background: rgba(122,162,255,.12); }
+
+.header{
+  padding: 36px 0 20px;
+}
+.h1{font-size: clamp(24px, 3vw, 36px); margin:0 0 6px; font-weight:800}
+.subtle{color: var(--muted)}
+
+.grid{
+  display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px;
+}
+.card{
+  grid-column: span 12;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.card .card-head{padding:16px 18px; border-bottom: 1px solid rgba(255,255,255,.08); display:flex; align-items:center; justify-content:space-between}
+.card .card-title{font-weight:700}
+.card .card-body{padding:18px}
+
+@media (min-width: 800px){
+  .span-6{grid-column: span 6;}
+  .span-4{grid-column: span 4;}
+  .span-8{grid-column: span 8;}
+}
+
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: linear-gradient(180deg, rgba(122,162,255,.2), rgba(122,162,255,.06));
+  color: white; font-weight:700; letter-spacing:.3px;
+  padding:10px 14px; border-radius:12px; cursor:pointer;
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); box-shadow: 0 8px 18px rgba(78,124,255,.25)}
+.btn.ghost{ background: transparent; border-color: rgba(255,255,255,.15); color: var(--muted); }
+.btn.danger{ background: linear-gradient(180deg, rgba(255,107,107,.25), rgba(255,107,107,.08)); border-color: rgba(255,107,107,.35) }
+
+.input, select{
+  appearance:none;
+  width:100%; padding:12px 14px; border-radius:12px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15);
+  color: var(--text); outline:none;
+}
+.input::placeholder{color: #a9bbd6}
+
+label{display:block; font-size:.9rem; color:#bcd1ef; margin: 6px 0 8px}
+.row{display:grid; gap:12px; grid-template-columns: 1fr}
+@media (min-width: 840px){
+ .row.two{grid-template-columns: 1fr 1fr}
+ .row.three{grid-template-columns: 1fr 1fr 1fr}
+}
+
+.table{width:100%; border-collapse: collapse; font-size:.95rem}
+.table th, .table td{ padding:12px 10px; border-bottom:1px dashed rgba(255,255,255,.12); text-align:left}
+.table th{color:#bcd1ef; font-weight:700; letter-spacing:.3px}
+.table tr:hover td{ background: rgba(255,255,255,.03)}
+
+.footer{
+  margin: 40px 0 80px;
+  color: var(--muted);
+  font-size: .9rem;
+  text-align:center;
+  opacity:.8;
+}
+
+.tagbar{display:flex; gap:8px; flex-wrap:wrap}
+.tag{padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); color:#cfe0ff; font-size:.8rem}
+
+form .actions{display:flex; gap:12px; justify-content:flex-end; margin-top: 12px}
+.kicker{font-size:.8rem; color:var(--muted); letter-spacing:.3px; text-transform:uppercase}

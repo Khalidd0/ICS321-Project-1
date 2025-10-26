@@ -1,18 +1,22 @@
 {
-  "name": "ics321-proj-1",
+  "name": "horse-racing-api",
   "version": "1.0.0",
   "description": "",
-  "main": "servel.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "mysql2": "^3.15.2"
+    "mysql2": "^3.15.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

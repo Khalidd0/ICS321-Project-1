@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Add Race & Results · Horse Racing DB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="navbar">
+  <div class="container nav-inner">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 17c3-2 5-6 8-6s5 4 8 6" stroke="#7aa2ff" stroke-width="2" stroke-linecap="round"/><path d="M9 18h6" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Horse Racing DB</span>
+      <span class="badge">ICS321</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="admin_dashboard.html">Admin</a>
+      <a href="guest_dashboard.html">Guest</a>
+      <a href="track_summary.html">Tracks</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="header">
+    <h1 class="h1">Add Race & Results</h1>
+    <div class="subtle">Polished, responsive UI scaffold. Connect to your MySQL backend.</div>
+  </div>
+
+<div class="grid">
+  <div class="card span-12">
+    <div class="card-head"><div class="card-title">Race Details</div></div>
+    <div class="card-body">
+      <form id="race-form">
+        <div class="row three">
+          <div><label>Race ID</label><input class="input" name="raceId" placeholder="race37"></div>
+          <div><label>Race Name</label><input class="input" name="raceName" placeholder="Spring Classic"></div>
+          <div><label>Track Name</label><input class="input" name="trackName" placeholder="Riyadh"></div>
+        </div>
+        <div class="row two">
+          <div><label>Race Date</label><input class="input" type="date" name="raceDate"></div>
+          <div><label>Race Time</label><input class="input" type="time" name="raceTime"></div>
+        </div>
+        <div class="actions">
+          <button class="btn" type="submit">Save Race</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card span-12">
+    <div class="card-head"><div class="card-title">Add Results</div><span class="kicker">Multiple horses</span></div>
+    <div class="card-body">
+      <form id="race-form">
+        <div class="row three">
+          <div><label>Horse ID</label><input class="input" name="horseId" placeholder="horse1"></div>
+          <div><label>Result</label>
+            <select name="result">
+              <option>first</option><option>second</option><option>third</option><option>fourth</option><option>no show</option><option>last</option>
+            </select>
+          </div>
+          <div><label>Prize</label><input class="input" type="number" name="prize" step="0.01" placeholder="50000"></div>
+        </div>
+        <div class="actions">
+          <button class="btn" type="submit">Add Result</button>
+          <button class="btn ghost" type="button">Add Another</button>
+        </div>
+      </form>
+      <table class="table" style="margin-top:12px">
+        <thead><tr><th>Horse ID</th><th>Result</th><th>Prize</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>horse11</td><td>first</td><td>50000</td><td><button class="btn danger" type="button">Remove</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

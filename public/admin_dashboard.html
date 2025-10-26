@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Dashboard · Horse Racing DB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="navbar">
+  <div class="container nav-inner">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 17c3-2 5-6 8-6s5 4 8 6" stroke="#7aa2ff" stroke-width="2" stroke-linecap="round"/><path d="M9 18h6" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Horse Racing DB</span>
+      <span class="badge">ICS321</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="admin_dashboard.html">Admin</a>
+      <a href="guest_dashboard.html">Guest</a>
+      <a href="track_summary.html">Tracks</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="header">
+    <h1 class="h1">Admin Dashboard</h1>
+    <div class="subtle">Polished, responsive UI scaffold. Connect to your MySQL backend.</div>
+  </div>
+
+<div class="grid">
+  <a class="card span-6" href="add_race.html">
+    <div class="card-head"><div class="card-title">Add Race + Results</div><span class="kicker">Admin</span></div>
+    <div class="card-body"><p>Add new race metadata and its results in one flow.</p></div>
+  </a>
+  <a class="card span-6" href="delete_owner.html">
+    <div class="card-head"><div class="card-title">Delete Owner</div><span class="kicker">Admin</span></div>
+    <div class="card-body"><p>Delete an owner and cascade related records via stored procedure.</p></div>
+  </a>
+  <a class="card span-6" href="move_horse.html">
+    <div class="card-head"><div class="card-title">Move Horse</div><span class="kicker">Admin</span></div>
+    <div class="card-body"><p>Transfer a horse from one stable to another.</p></div>
+  </a>
+  <a class="card span-6" href="approve_trainer.html">
+    <div class="card-head"><div class="card-title">Approve Trainer</div><span class="kicker">Admin</span></div>
+    <div class="card-body"><p>Approve a new trainer to join a stable.</p></div>
+  </a>
+</div>
+
+  
+</div>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

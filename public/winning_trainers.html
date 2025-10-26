@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Winning Trainers · Horse Racing DB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="navbar">
+  <div class="container nav-inner">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 17c3-2 5-6 8-6s5 4 8 6" stroke="#7aa2ff" stroke-width="2" stroke-linecap="round"/><path d="M9 18h6" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Horse Racing DB</span>
+      <span class="badge">ICS321</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="admin_dashboard.html">Admin</a>
+      <a href="guest_dashboard.html">Guest</a>
+      <a href="track_summary.html">Tracks</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="header">
+    <h1 class="h1">Winning Trainers</h1>
+    <div class="subtle">Polished, responsive UI scaffold. Connect to your MySQL backend.</div>
+  </div>
+
+<div class="grid">
+  <div class="card span-12">
+    <div class="card-head"><div class="card-title">Trainers with Wins</div></div>
+    <div class="card-body">
+      <table class="table">
+        <thead><tr><th>Trainer</th><th>Winning Horse</th><th>Race</th><th>Result</th></tr></thead>
+        <tbody id="winners-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

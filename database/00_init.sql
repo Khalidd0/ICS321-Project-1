@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS HorseRacing;
+CREATE DATABASE HorseRacing ;
+USE HorseRacing;
