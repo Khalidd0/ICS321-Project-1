@@ -54,28 +54,33 @@
 
   <div class="card span-12">
     <div class="card-head"><div class="card-title">Add Results</div><span class="kicker">Multiple horses</span></div>
-    <div class="card-body">
-      <form id="race-form">
-        <div class="row three">
-          <div><label>Horse ID</label><input class="input" name="horseId" placeholder="horse1"></div>
-          <div><label>Result</label>
-            <select name="result">
-              <option>first</option><option>second</option><option>third</option><option>fourth</option><option>no show</option><option>last</option>
-            </select>
+      <div class="card-body">
+        <!-- Results form: use IDs/data attributes that the client JS expects -->
+        <form id="race-result-form" data-results>
+          <div class="row three">
+            <div><label>Horse ID</label><input class="input" name="horseId" placeholder="horse1"></div>
+            <div><label>Result</label>
+              <select name="result">
+                <option>first</option><option>second</option><option>third</option><option>fourth</option><option>no show</option><option>last</option>
+              </select>
+            </div>
+            <div><label>Prize</label><input class="input" type="number" name="prize" step="0.01" placeholder="50000"></div>
           </div>
-          <div><label>Prize</label><input class="input" type="number" name="prize" step="0.01" placeholder="50000"></div>
-        </div>
-        <div class="actions">
-          <button class="btn" type="submit">Add Result</button>
-          <button class="btn ghost" type="button">Add Another</button>
-        </div>
-      </form>
-      <table class="table" style="margin-top:12px">
-        <thead><tr><th>Horse ID</th><th>Result</th><th>Prize</th><th></th></tr></thead>
-        <tbody>
-          <tr><td>horse11</td><td>first</td><td>50000</td><td><button class="btn danger" type="button">Remove</button></td></tr>
-        </tbody>
-      </table>
+          <div class="actions">
+            <!-- stage this single result into the in-memory list -->
+            <button class="btn" data-add type="button">Add Result</button>
+            <!-- convenience: stage another result (same as data-add) -->
+            <button class="btn ghost" id="add-result-btn" type="button">Add Another</button>
+            <!-- submit all staged results to the server -->
+            <button class="btn" id="submit-results-btn" type="button">Submit Results</button>
+          </div>
+        </form>
+        <table class="table" style="margin-top:12px">
+          <thead><tr><th>Horse ID</th><th>Result</th><th>Prize</th><th></th></tr></thead>
+          <tbody id="results-staged-body">
+            <tr><td>horse11</td><td>first</td><td>50000</td><td><button class="btn danger" type="button">Remove</button></td></tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>
