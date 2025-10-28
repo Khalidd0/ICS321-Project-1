@@ -96,11 +96,13 @@ DROP PROCEDURE IF EXISTS get_track_stats $$
 CREATE PROCEDURE get_track_stats()
 BEGIN
   /* Aliases match UI: raceCount, totalHorses */
- SELECT tr.trachName, COUNT(DISTINCT r.raceId) AS races_count, COUNT(DISTINCT rr.horseId) AS
- total_participants  FROM Track tr  LEFT JOIN Race r ON r.trackName = tr.trackName  LEFT JOIN
- RaceResults rr ON rr.raceId = r.raceId  GROUP BY tr.trackName  ORDER BY races_count
- DESC, total_participants DESC, tr.trackName;
+ SELECT tr.trackName, COUNT(DISTINCT r.raceId) AS raceCount, COUNT(DISTINCT rr.horseId) AS
+ totalHorses  FROM Track tr  LEFT JOIN Race r ON r.trackName = tr.trackName  LEFT JOIN
+ RaceResults rr ON rr.raceId = r.raceId  GROUP BY tr.trackName  ORDER BY raceCount
+ DESC, totalHorses DESC, tr.trackName;
  
 END $$
 
 DELIMITER ;
+
+
