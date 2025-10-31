@@ -4,12 +4,7 @@ DELIMITER $$
 /* ============================
    A) Owner → Horses + Trainer
    ============================ */
-USE HorseRacing;
-
-DROP PROCEDURE IF EXISTS get_owner_horses_trainers;
-
-DELIMITER $$
-
+DROP PROCEDURE IF EXISTS get_owner_horses_trainers $$
 CREATE PROCEDURE get_owner_horses_trainers(IN p_lname VARCHAR(30))
 BEGIN
   SELECT
@@ -19,15 +14,10 @@ BEGIN
   FROM Owner o
   JOIN Owns  ow ON ow.ownerId = o.ownerId
   JOIN Horse h  ON h.horseId  = ow.horseId
-  JOIN Trainer t ON t.stableId = h.stableId    -- all trainers in that stable
+  JOIN Trainer t ON t.stableId = h.stableId
   WHERE o.lname = p_lname
   ORDER BY h.horseName, t.lname, t.fname;
-END$$
-
-
-
- 
-
+END $$
 
 /* =======================================
    B) Trainers who have winners (detail)
@@ -61,13 +51,10 @@ END $$
 /* ==========================================
    C) Trainer total winnings (aggregated)
    ========================================== */
-USE HorseRacing;
-DELIMITER $$
-
 DROP PROCEDURE IF EXISTS get_trainer_total_winnings $$
 CREATE PROCEDURE get_trainer_total_winnings()
 BEGIN
-  /* Pick one deterministic trainer per stable to avoid double counting */
+  /* FIXED: Removed WHERE clause - now sums ALL prizes, not just first place */
   WITH pick AS (
     SELECT stableId, MIN(CONCAT(lname, ',', fname)) AS pick
     FROM Trainer
@@ -82,12 +69,11 @@ BEGIN
     ON t.stableId = p.stableId
    AND CONCAT(t.lname, ',', t.fname) = p.pick
   JOIN RaceResults rr ON rr.horseId = h.horseId
-  WHERE rr.results = 'first'
+  -- REMOVED: WHERE rr.results = 'first' 
+  -- NOW CORRECTLY SUMS ALL PRIZE MONEY FROM ALL PLACEMENTS
   GROUP BY trainerName
   ORDER BY totalPrize DESC, trainerName;
 END $$
-
-
 
 /* ===============================
    D) Track summary (UI-friendly)
@@ -96,13 +82,15 @@ DROP PROCEDURE IF EXISTS get_track_stats $$
 CREATE PROCEDURE get_track_stats()
 BEGIN
   /* Aliases match UI: raceCount, totalHorses */
- SELECT tr.trackName, COUNT(DISTINCT r.raceId) AS raceCount, COUNT(DISTINCT rr.horseId) AS
- totalHorses  FROM Track tr  LEFT JOIN Race r ON r.trackName = tr.trackName  LEFT JOIN
- RaceResults rr ON rr.raceId = r.raceId  GROUP BY tr.trackName  ORDER BY raceCount
- DESC, totalHorses DESC, tr.trackName;
- 
+  SELECT
+    tr.trackName,
+    COUNT(DISTINCT r.raceId)  AS raceCount,
+    COUNT(DISTINCT rr.horseId) AS totalHorses
+  FROM Track tr
+  LEFT JOIN Race r        ON r.trackName = tr.trackName
+  LEFT JOIN RaceResults rr ON rr.raceId = r.raceId
+  GROUP BY tr.trackName
+  ORDER BY raceCount DESC, totalHorses DESC, tr.trackName;
 END $$
 
 DELIMITER ;
-
-
