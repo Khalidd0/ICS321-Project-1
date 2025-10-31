@@ -86,23 +86,6 @@ Check the files under `src/controllers/` and `src/routes/` for full details on r
 
 Open files in `public/` directly in a browser or host them and let them call the API. The HTML files are simple pages that expect the server to be running at `http://localhost:3000` by default.
 
-## Troubleshooting
 
-- "Cannot find module 'dotenv'": run `npm install dotenv` (this project includes dotenv in `package.json`)
-- DB connection failed: check `.env` values and ensure MySQL is running and accessible
-- No data shown on guest pages: verify the stored procedures in `database/7_guest_procedures.sql` were imported and that the procedure names match the ones used in `src/controllers/guestController.js`.
 
-If you want, I can also:
 
-- Run quick checks on your controllers/routes to ensure the endpoint names and stored procedure names match the SQL.
-- Add example cURL commands or Postman collection.
-
-## Next steps (suggested)
-
-- Add API documentation (OpenAPI/Swagger)
-- Add unit/integration tests for controllers
-- Add input validation and request schema checks
-
----
-
-Generated README — feel free to ask for more details or for me to commit this change.
