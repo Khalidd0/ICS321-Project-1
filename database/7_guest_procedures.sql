@@ -1,3 +1,8 @@
+--
+-- database/7_guest_procedures.sql
+-- Purpose: Stored procedures exposed to guest (read-only) users.
+-- These procedures are used by the frontend guest pages.
+--
 USE HorseRacing;
 DELIMITER $$
 

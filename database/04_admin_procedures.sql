@@ -1,3 +1,8 @@
+--
+-- database/04_admin_procedures.sql
+-- Purpose: Stored procedures used by admin endpoints (add race, delete owner, etc.).
+-- Run with `DELIMITER` support in your MySQL client.
+--
 USE HorseRacing;
 DELIMITER $$
 

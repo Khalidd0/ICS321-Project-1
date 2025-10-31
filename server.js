@@ -1,3 +1,10 @@
+/*
+  server.js
+  ---------
+  Purpose: Application entry point — loads environment variables, verifies DB
+  connectivity, and starts the Express server. Prints available endpoints
+  to the console for developer convenience.
+*/
 // ============================================
 // SERVER ENTRY POINT
 // ============================================

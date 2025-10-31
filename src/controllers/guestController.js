@@ -1,3 +1,11 @@
+/*
+  guestController.js
+  -------------------
+  Purpose: Controller for guest (read-only) API endpoints.
+  - Calls stored procedures defined in `database/7_guest_procedures.sql`.
+  - Each exported function handles an Express request and returns JSON.
+  Non-functional change: only added explanatory comments.
+*/
 const {pool}=require("../config/database");
 
 async function getOwnerHorsesTrainers(req, res) {

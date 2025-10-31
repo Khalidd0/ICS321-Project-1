@@ -1,3 +1,8 @@
+--
+-- database/01_schema.sql
+-- Purpose: Define schema (tables, keys, foreign keys) for the HorseRacing DB.
+-- Run this after `00_init.sql` to create tables used by the application.
+-- Comments added only; no schema changes.
 
 create table Stable
 (stableId varchar(15) not null,

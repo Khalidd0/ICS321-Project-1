@@ -1,3 +1,10 @@
+/*
+  src/app.js
+  ----------
+  Purpose: Configure and export the Express application instance.
+  - Sets up middleware (CORS, body parsers), static file serving, and
+    mounts API route modules. Also defines health and root API endpoints.
+*/
 // ============================================
 // EXPRESS APP CONFIGURATION
 // ============================================

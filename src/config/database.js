@@ -1,3 +1,11 @@
+/*
+  src/config/database.js
+  ----------------------
+  Purpose: Create and export a MySQL connection pool used by controllers.
+  - Exports: `pool` (mysql2 pool) and `testConnection()` helper.
+  - Reads DB connection values from environment variables via dotenv.
+  Non-functional change: only added explanatory comments.
+*/
 const mysql=require("mysql2/promise");
 require("dotenv").config();
 

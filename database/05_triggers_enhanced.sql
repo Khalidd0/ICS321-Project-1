@@ -1,3 +1,9 @@
+--
+-- database/05_triggers_enhanced.sql
+-- Purpose: Create audit/archive tables and triggers that record deletes
+-- to `old_*` tables for auditing and safe rollback reasons.
+-- Run after schema creation.
+--
 USE HorseRacing;
 
 -- ============================================

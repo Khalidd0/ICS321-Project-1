@@ -1,3 +1,10 @@
+/*
+  src/controllers/adminController.js
+  ---------------------------------
+  Purpose: Controller functions for admin operations (create races, submit
+  race results, manage owners/trainers/horses). These functions call
+  stored procedures defined in `database/04_admin_procedures.sql`.
+*/
 // ============================================
 // ADMIN CONTROLLER
 // ============================================

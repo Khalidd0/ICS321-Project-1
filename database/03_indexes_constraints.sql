@@ -1,3 +1,8 @@
+--
+-- database/03_indexes_constraints.sql
+-- Purpose: Add indexes and constraints to improve query performance and data integrity.
+-- Run this after schema and seed if needed.
+--
 CREATE INDEX horse_stableId_idx        ON Horse(stableId);
 CREATE INDEX trainer_stableId_idx     ON Trainer(stableId);
 CREATE INDEX owns_ownerId_idx          ON Owns(ownerId);

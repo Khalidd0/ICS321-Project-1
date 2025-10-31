@@ -1,3 +1,10 @@
+/*
+  src/routes/guestRoutes.js
+  -------------------------
+  Purpose: Define Express routes for guest (read-only) endpoints and wire
+  them to controller functions in `src/controllers/guestController.js`.
+  Non-functional change: header comment only.
+*/
 // ============================================
 // GUEST ROUTES
 // ============================================

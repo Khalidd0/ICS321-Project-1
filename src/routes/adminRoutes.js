@@ -1,3 +1,9 @@
+/*
+  src/routes/adminRoutes.js
+  -------------------------
+  Purpose: Define Express routes for admin operations and wire them to
+  controller functions in `src/controllers/adminController.js`.
+*/
 // ============================================
 // ADMIN ROUTES
 // ============================================

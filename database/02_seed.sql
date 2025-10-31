@@ -1,3 +1,9 @@
+--
+-- database/02_seed.sql
+-- Purpose: Seed the database with sample data used by the UI and tests.
+-- Run this after `01_schema.sql`. This file inserts sample stables, horses,
+-- owners, trainers, tracks, races, and race results.
+--
 /* Add data to tables. */
 /* Stables first */
 insert into Stable values ('stable1', 'Zobair Farm', 'Riyadh', 'orange');
