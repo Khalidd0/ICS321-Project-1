@@ -59,24 +59,14 @@ END $$
 DROP PROCEDURE IF EXISTS get_trainer_total_winnings $$
 CREATE PROCEDURE get_trainer_total_winnings()
 BEGIN
-  /* FIXED: Removed WHERE clause - now sums ALL prizes, not just first place */
-  WITH pick AS (
-    SELECT stableId, MIN(CONCAT(lname, ',', fname)) AS pick
-    FROM Trainer
-    GROUP BY stableId
-  )
+  -- Every trainer gets credit for ALL prize money from horses in their stable
   SELECT
     CONCAT(t.fname, ' ', t.lname) AS trainerName,
-    SUM(rr.prize)                 AS totalPrize
-  FROM Horse h
-  JOIN pick p ON p.stableId = h.stableId
-  JOIN Trainer t
-    ON t.stableId = p.stableId
-   AND CONCAT(t.lname, ',', t.fname) = p.pick
-  JOIN RaceResults rr ON rr.horseId = h.horseId
-  -- REMOVED: WHERE rr.results = 'first' 
-  -- NOW CORRECTLY SUMS ALL PRIZE MONEY FROM ALL PLACEMENTS
-  GROUP BY trainerName
+    COALESCE(SUM(rr.prize), 0)    AS totalPrize
+  FROM Trainer t
+  LEFT JOIN Horse h ON h.stableId = t.stableId
+  LEFT JOIN RaceResults rr ON rr.horseId = h.horseId
+  GROUP BY t.trainerId, trainerName
   ORDER BY totalPrize DESC, trainerName;
 END $$
 

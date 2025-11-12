@@ -9,7 +9,6 @@ DELIMITER $$
 -- ============================================
 -- Delete owner AND their horses
 -- Only deletes horses that have NO OTHER OWNERS
--- Safe mode compatible version
 -- ============================================
 DROP PROCEDURE IF EXISTS delete_owner_and_related $$
 CREATE PROCEDURE delete_owner_and_related(IN p_ownerId VARCHAR(15))
@@ -34,7 +33,6 @@ BEGIN
     AND o2.ownerId != p_ownerId
   );
   
-  -- CORRECT DELETE ORDER (respect foreign keys):
   
   -- 1. Delete race results first (child of Horse)
   DELETE rr FROM RaceResults rr
@@ -60,9 +58,7 @@ BEGIN
   DROP TEMPORARY TABLE IF EXISTS horses_to_delete;
 END $$
 
--- ============================================
--- OTHER ADMIN PROCEDURES
--- ============================================
+
 
 DROP PROCEDURE IF EXISTS move_horse_to_stable $$ 
 CREATE PROCEDURE move_horse_to_stable(IN p_horseId VARCHAR(15), IN p_newStable VARCHAR(30))
